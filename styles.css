@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+:root {
+  /* colors  */
+  /* primary */
+  --white: hsl(0, 0%, 100%);
+  --bright-blue: hsl(220, 98%, 61%);
+  /* - Check Background: linear-gradient --bright-green to --purple-pink*/
+  --bright-green: hsl(192, 100%, 67%);
+  --purple-pink: hsl(280, 87%, 65%);
+
+  /* light theme */
+  --very-light-gray: hsl(0, 0%, 98%);
+  --very-light-grayish-blue: hsl(236, 33%, 92%); /* on-hover in dark theme*/
+  --light-grayish-blue: hsl(233, 11%, 84%);
+  --dark-grayish-blue: hsl(236, 9%, 61%);
+  --very-dark-grayish-blue: hsl(235, 19%, 35%);
+
+  /* dark theme */
+  --very-dark-blue: hsl(235, 21%, 11%);
+  --very-dark-desaturated-blue: hsl(235, 24%, 19%);
+  --light-grayish-blue: hsl(234, 39%, 85%);
+  --dark-grayish-blue: hsl(234, 11%, 52%);
+  --very-dark-grayish-blue: hsl(233, 14%, 35%);
+  --very-dark-grayish-blue: hsl(237, 14%, 26%);
+
+  /* other */
+  --placeholder-color: hsl(233, 14%, 35%);
+  --text-color: #c8cae1;
+
+  --img-bg: url("./images/bg-desktop-dark.jpg");
+  --box-shadow: hsl(0, 0%, 0%, 0.1);
+  --fw-normal: 400;
+  --fw-bold: 700;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 18px;
+  font-weight: var(--fw-normal);
+  font-family: "Josefin Sans", sans-serif;
+  min-height: 100vh;
+  margin: auto;
+  padding-top: 5rem;
+  width: min(85%, 30rem);
+  background-color: var(--very-dark-blue);
+  background-image: var(--img-bg);
+  background-repeat: no-repeat;
+  transition: color 0.3s ease;
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+
+input,
+button {
+  font: inherit;
+  border: 0;
+  background: transparent;
+  color: var(--text-color);
+}
+
+input:focus,
+button:focus {
+  outline: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  padding: 0;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+header .dark-theme{
+  display: none;
+}
+
+header h1 {
+  color: var(--white);
+  letter-spacing: 1.3rem;
+  font-weight: var(--fw-bold);
+  font-size: 36px;
+}
+
+/* add */
+.card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  background: transparent;
+  padding: 1rem 1.2rem;
+  align-items: flex-start;
+  height: 3.5rem;
+  background-color: var(--very-dark-desaturated-blue);
+  border-top: 1px solid var(--placeholder-color);
+}
+
+.add {
+  margin: 1rem 0;
+  border-radius: 0.3rem;
+}
+
+.add button {
+  /* padding: 1rem; */
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--placeholder-color);
+  cursor: pointer;
+}
+
+.add button i {
+  display: none;
+}
+
+.add button:hover i {
+  display: block;
+}
+
+.txt-container {
+  flex: 1;
+}
+
+.txt-container input {
+  width: 100%;
+  font-size: 18px;
+}
+/* list */
+.todo-item {
+  justify-content: space-between;
+}
+.todo,
+.icons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.fa {
+  margin-top: 0.3rem;
+  cursor: pointer;
+  display: none;
+  color: var(--placeholder-color);
+}
+.fa:hover {
+  color: var(--text-color);
+}
+.fa-pencil {
+  font-size: 14px;
+}
+.todo-item:hover .fa {
+  display: block;
+}
+
+.todos .card:first-child {
+  border-radius: 0.3rem 0.3rem 0 0;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"] ~ label {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid var(--placeholder-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+input[type="checkbox"] ~ label:hover {
+  border: 1px solid var(--purple-pink);
+  /* border-image: linear-gradient(var(--bright-green), var(--purple-pink)) 30;
+  border-width: 1px;
+  border-style: solid; */
+}
+input[type="checkbox"]:checked ~ label {
+  background: url(./images/icon-check.svg),
+    linear-gradient(135deg, var(--bright-green) 0, var(--purple-pink));
+  background-repeat: no-repeat;
+  background-position: center;
+}
+input[type="checkbox"]:checked ~ p {
+  text-decoration: line-through;
+  color: var(--placeholder-color);
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  height: 3rem;
+  color: var(--placeholder-color);
+  border-radius: 0 0 0.3rem 0.3rem;
+}
+.stats button {
+  color: var(--placeholder-color);
+  cursor: pointer;
+}
+.stats button:hover {
+  color: var(--text-color);
+}
+.stats .active{
+    color: var(--bright-blue) !important;
+}
+
+footer {
+  margin: 1rem 0;
+  text-align: center;
+  color: var(--placeholder-color);
+}
