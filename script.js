@@ -5,6 +5,9 @@ const itemsLeftElement = document.querySelector("#items-left");
 const allBtn = document.querySelector("#all");
 const activeBtn = document.querySelector("#active");
 const completedBtn = document.querySelector("#completed");
+const mAllBtn = document.querySelector("#m-all");
+const mActiveBtn = document.querySelector("#m-active");
+const mCompletedBtn = document.querySelector("#m-completed");
 const clearBtn = document.querySelector("#clear");
 let todos = [];
 
@@ -195,22 +198,61 @@ const updateItemsLeft = () => {
   
   allBtn.addEventListener('click', () => {
     allBtn.classList.add('active');
+    mAllBtn.classList.add('active');
     activeBtn.classList.remove('active');
+    mActiveBtn.classList.remove('active');
     completedBtn.classList.remove('active');
+    mCompletedBtn.classList.remove('active');
+    filterTodoList('all');
+  });
+  
+  mAllBtn.addEventListener('click', () => {
+    allBtn.classList.add('active');
+    mAllBtn.classList.add('active');
+    activeBtn.classList.remove('active');
+    mActiveBtn.classList.remove('active');
+    completedBtn.classList.remove('active');
+    mCompletedBtn.classList.remove('active');
     filterTodoList('all');
   });
   
   activeBtn.addEventListener('click', () => {
     allBtn.classList.remove('active');
+    mAllBtn.classList.remove('active');
     activeBtn.classList.add('active');
+    mActiveBtn.classList.add('active');
     completedBtn.classList.remove('active');
+    mCompletedBtn.classList.remove('active');
+    filterTodoList('active');
+  });
+  
+  mActiveBtn.addEventListener('click', () => {
+    allBtn.classList.remove('active');
+    mAllBtn.classList.remove('active');
+    activeBtn.classList.add('active');
+    mActiveBtn.classList.add('active');
+    completedBtn.classList.remove('active');
+    mCompletedBtn.classList.remove('active');
     filterTodoList('active');
   });
   
   completedBtn.addEventListener('click', () => {
     allBtn.classList.remove('active');
+    mAllBtn.classList.remove('active');
     activeBtn.classList.remove('active');
+    mActiveBtn.classList.remove('active');
     completedBtn.classList.add('active');
+    mCompletedBtn.classList.add('active');
+    filterTodoList('completed');
+  });
+  
+  mCompletedBtn.addEventListener('click', () => {
+    allBtn.classList.remove('active');
+    mAllBtn.classList.remove('active');
+    activeBtn.classList.remove('active');
+    mActiveBtn.classList.remove('active');
+    completedBtn.classList.add('active');
+    mCompletedBtn.classList.add('active');
     filterTodoList('completed');
   });
   
