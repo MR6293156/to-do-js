@@ -258,3 +258,6 @@ footer {
     display: none;
   }
 }
+.dragging{
+  opacity: .6;
+}
