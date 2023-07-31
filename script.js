@@ -10,9 +10,6 @@ const mActiveBtn = document.querySelector("#m-active");
 const mCompletedBtn = document.querySelector("#m-completed");
 const clearBtn = document.querySelector("#clear");
 let todos = [];
-// Store listitems
-const listItems = [];
-let dragStartIndex;
 
 // Check if todos exist in local storage
 if (localStorage.getItem("todos")) {
@@ -75,7 +72,6 @@ function renderTodoList() {
     `;
 
     newTodoItem.innerHTML = todoContent;
-    listItems.push(newTodoItem);
     todoList.appendChild(newTodoItem);
   });
 
@@ -136,6 +132,7 @@ const deleteTodo = (todoId) => {
   todos = todos.filter((todo) => todo.id !== todoId);
   localStorage.setItem("todos", JSON.stringify(todos));
   renderTodoList();
+  updateItemsLeft();
 };
 
 todoList.addEventListener("click", (event) => {

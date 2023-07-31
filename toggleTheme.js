@@ -1,4 +1,3 @@
-// document.addEventListener("DOMContentLoaded", () => {
   let theme = localStorage.getItem("theme");
   let darkThemeBtn = document.querySelector("#dark-theme-btn");
   let lightThemeBtn = document.querySelector("#light-theme-btn");
@@ -23,9 +22,8 @@
     }
 
     if (mode == "dark") {
-      document.getElementById("theme-style").href = "dark.css";
+      document.getElementById("theme-style").href = "";
     }
 
     localStorage.setItem("theme", mode);
   }
-// });
